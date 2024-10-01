@@ -2,7 +2,8 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Microsoft.Extensions.DependencyInjection;
-using OwnTlgrmClient.UI.ViewModels;
+using OwnTlgrmClient.Interfaces.ViewModels;
+using OwnTlgrmClient.ViewModels;
 
 namespace OwnTlgrmClient.UI;
 public partial class App : Application
@@ -15,14 +16,14 @@ public partial class App : Application
     public override void OnFrameworkInitializationCompleted()
     {
         var serviceProvider = new ServiceCollection()
-            .AddSingleton<MainViewModel>()
+            .AddSingleton<IMainViewModel, MainViewModel>()
             .BuildServiceProvider();
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             var mainWindow = new MainWindow
             {
-                DataContext = serviceProvider.GetRequiredService<MainViewModel>()
+                DataContext = serviceProvider.GetRequiredService<IMainViewModel>()
             };
             desktop.MainWindow = mainWindow;
         }

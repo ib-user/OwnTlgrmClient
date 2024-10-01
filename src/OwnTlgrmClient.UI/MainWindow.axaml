@@ -1,10 +1,11 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:OwnTlgrmClient.UI.ViewModels"
+        xmlns:vm="clr-namespace:OwnTlgrmClient.ViewModels;assembly=OwnTlgrmClient.ViewModels"
+        xmlns:controls="clr-namespace:OwnTlgrmClient.UI.Controls"
         x:Class="OwnTlgrmClient.UI.MainWindow"
-        x:DataType="local:MainViewModel"
-        Title="{Binding Title}">
-    <StackPanel>
-        <TextBlock Text="{Binding Title}" />
-    </StackPanel>
+        x:DataType="vm:MainViewModel">
+    <DockPanel>
+        
+        <controls:ChatUserControl/>
+    </DockPanel>
 </Window>

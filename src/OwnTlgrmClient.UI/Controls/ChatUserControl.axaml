@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="clr-namespace:OwnTlgrmClient.ViewModels.Components;assembly=OwnTlgrmClient.ViewModels"
+             x:DataType="vm:ChatViewModel"
+             x:Class="OwnTlgrmClient.UI.Controls.ChatUserControl">
+  <StackPanel>
+        <ListBox ItemsSource="{Binding Messages}" Margin="0,0,0,10" Height="300">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Content}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBox Text="{Binding MessageInput, Mode=TwoWay}" 
+                 Watermark="Type your message here..." 
+                 KeyDown="MessageInput_KeyDown" />
+        <Button Content="Send" 
+                Command="{Binding SendMessageCommand}" />
+    </StackPanel>
+</UserControl>
