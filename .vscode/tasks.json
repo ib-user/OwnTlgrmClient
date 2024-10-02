@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/OwnTlgrmClient.UI/OwnTlgrmClient.UI.csproj" // Adjust this to your project file
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
