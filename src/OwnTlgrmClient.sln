@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnTlgrmClient.ViewModels",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnTlgrmClient.Interfaces", "OwnTlgrmClient.Interfaces\OwnTlgrmClient.Interfaces.csproj", "{15CFBDEE-0DB5-49FB-8D19-459131A52543}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnTlgrmClient.ViewModels.Tests", "OwnTlgrmClient.ViewModels.Tests\OwnTlgrmClient.ViewModels.Tests.csproj", "{B204FDF1-EC12-454C-87E0-A6A2569F3DBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{15CFBDEE-0DB5-49FB-8D19-459131A52543}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15CFBDEE-0DB5-49FB-8D19-459131A52543}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15CFBDEE-0DB5-49FB-8D19-459131A52543}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B204FDF1-EC12-454C-87E0-A6A2569F3DBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B204FDF1-EC12-454C-87E0-A6A2569F3DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B204FDF1-EC12-454C-87E0-A6A2569F3DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B204FDF1-EC12-454C-87E0-A6A2569F3DBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

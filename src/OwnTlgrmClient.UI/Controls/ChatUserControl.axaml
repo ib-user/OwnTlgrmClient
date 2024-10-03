@@ -6,18 +6,18 @@
              xmlns:vm="clr-namespace:OwnTlgrmClient.ViewModels.Components;assembly=OwnTlgrmClient.ViewModels"
              x:DataType="vm:ChatViewModel"
              x:Class="OwnTlgrmClient.UI.Controls.ChatUserControl">
-  <StackPanel>
-        <ListBox ItemsSource="{Binding Messages}" Margin="0,0,0,10" Height="300">
+  <Grid RowDefinitons="*, auto">
+        <ListBox Grid.Row="0" ItemsSource="{Binding Messages}" Margin="0,0,0,10" Height="100">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Content}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBox Text="{Binding MessageInput, Mode=TwoWay}" 
+        <TextBox Grid.Row="1" Text="{Binding MessageInput, Mode=TwoWay}" 
                  Watermark="Type your message here..." 
                  KeyDown="MessageInput_KeyDown" />
         <Button Content="Send" 
                 Command="{Binding SendMessageCommand}" />
-    </StackPanel>
+    </Grid>
 </UserControl>
