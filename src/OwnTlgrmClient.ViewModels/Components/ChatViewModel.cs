@@ -1,17 +1,23 @@
+using System.Collections.ObjectModel;
+using System.Reactive;
 using OwnTlgrmClient.Interfaces.DTO;
 using OwnTlgrmClient.Interfaces.ViewModels;
 using ReactiveUI;
-using System.Collections.ObjectModel;
-using System.Reactive;
-
 
 namespace OwnTlgrmClient.ViewModels.Components;
 
 public class ChatViewModel : ReactiveObject, IChatViewModel
 {
+    private string _messageInput = string.Empty;
+
+    public ChatViewModel()
+    {
+        SendMessageCommand = ReactiveCommand.Create(SendMessage,
+            this.WhenAnyValue(x => x.MessageInput, input => !string.IsNullOrWhiteSpace(input)));
+    }
+
     public ObservableCollection<ChatMessage> Messages { get; } = [];
 
-    private string _messageInput;
     public string MessageInput
     {
         get => _messageInput;
@@ -20,17 +26,12 @@ public class ChatViewModel : ReactiveObject, IChatViewModel
 
     public ReactiveCommand<Unit, Unit> SendMessageCommand { get; }
 
-    public ChatViewModel()
-    {
-        SendMessageCommand = ReactiveCommand.Create(SendMessage, this.WhenAnyValue(x => x.MessageInput, input => !string.IsNullOrWhiteSpace(input)));
-    }
-
     private void SendMessage()
     {
-        if (!string.IsNullOrWhiteSpace(MessageInput))
-        {
-            Messages.Add(new ChatMessage(MessageInput));
-            MessageInput = string.Empty; // Clear the input
-        }
+        if (string.IsNullOrWhiteSpace(MessageInput))
+            return;
+
+        Messages.Add(new ChatMessage(MessageInput));
+        MessageInput = string.Empty; // Clear the input
     }
 }

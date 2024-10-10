@@ -1,7 +1,6 @@
 using FluentAssertions;
 using OwnTlgrmClient.ViewModels.Components;
 using System.Reactive.Linq;
-using System.Reactive.Threading.Tasks;
 
 namespace OwnTlgrmClient.ViewModels.Tests;
 
@@ -37,6 +36,6 @@ public class ChatViewModelTests
         viewModel.SendMessageCommand.Execute().Subscribe();
 
         // Assert
-        viewModel.Messages.Should().HaveCount(0);
+        viewModel.Messages.Should().BeEmpty();
     }
 }

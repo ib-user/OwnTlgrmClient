@@ -3,9 +3,10 @@
         xmlns:vm="clr-namespace:OwnTlgrmClient.ViewModels;assembly=OwnTlgrmClient.ViewModels"
         xmlns:controls="clr-namespace:OwnTlgrmClient.UI.Controls"
         x:Class="OwnTlgrmClient.UI.MainWindow"
-        x:DataType="vm:MainViewModel">
-    <DockPanel>
-        
-        <controls:ChatUserControl/>
-    </DockPanel>
+        x:DataType="vm:MainViewModel"
+        Height="600"
+        Width="800">
+    <Grid ColumnDefinitions="30 100 *">
+        <controls:ChatUserControl Grid.Column="2"/>
+    </Grid>
 </Window>
